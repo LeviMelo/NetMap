@@ -1,7 +1,7 @@
 import React, { useState, memo } from 'react';
 import { Handle, Position } from 'reactflow';
 
-const Node = memo(({ data, selected }) => {
+const Node = memo(({ data, selected, id }) => {
   const [editing, setEditing] = useState(false);
   const [label, setLabel] = useState(data.label);
 
@@ -26,9 +26,9 @@ const Node = memo(({ data, selected }) => {
 
   return (
     <div
-      className="px-4 py-2 shadow-md rounded-md bg-white border-2 border-gray-300"
-      style={{ backgroundColor: data.color }}
+      className="custom-node"
       onDoubleClick={handleDoubleClick}
+      style={{ backgroundColor: data.color }}
     >
       <Handle type="target" position={Position.Top} />
       {editing ? (
@@ -42,7 +42,7 @@ const Node = memo(({ data, selected }) => {
           autoFocus
         />
       ) : (
-        <div className="text-sm">{label}</div>
+        <div className="text-sm">{label || `Node ${id}`}</div>
       )}
       <Handle type="source" position={Position.Bottom} id="a" />
     </div>

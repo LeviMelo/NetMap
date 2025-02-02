@@ -1,12 +1,13 @@
-import React from 'react';
-import ConceptMapEditor from './components/ConceptMapEditor';
+import React from 'react'
+import ConceptMapEditor from './components/ConceptMapEditor'
 
 function App() {
   return (
-    <div>
+    <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4">NetMap - Concept Map Builder</h1>
       <ConceptMapEditor />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
